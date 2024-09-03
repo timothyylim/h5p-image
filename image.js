@@ -28,6 +28,10 @@ var H5P = H5P || {};
     if (params.title !== undefined) {
       this.title = this.stripHTML(this.htmlDecode(params.title));
     }
+
+    if (params.description !== undefined) {
+      this.description = this.stripHTML(this.htmlDecode(params.description));
+    }
   };
 
   H5P.Image.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -44,7 +48,7 @@ var H5P = H5P || {};
     var source = this.source;
 
     if (self.$img === undefined) {
-      if(self.placeholder) {
+      if (self.placeholder) {
         self.$img = $('<div>', {
           width: '100%',
           height: '100%',
@@ -73,6 +77,14 @@ var H5P = H5P || {};
     }
 
     $wrapper.addClass('h5p-image').html(self.$img);
+
+    // Add the description underneath the image if it exists
+    if (this.description !== undefined) {
+      $('<div>', {
+        class: 'h5p-image-description',
+        text: this.description
+      }).insertAfter($wrapper);
+    }
   };
 
   /**

@@ -39,6 +39,15 @@
     "optional": true
   },
   {
+    "name": "description",
+    "type": "text",
+    "label": "Description",
+    "importance": "low",
+    "description": "Optional. This text is displayed underneath the image.",
+    "optional": true,
+    "maxLength": 1000
+  },
+  {
     "name": "contentName",
     "type": "text",
     "label": "Image content name",
